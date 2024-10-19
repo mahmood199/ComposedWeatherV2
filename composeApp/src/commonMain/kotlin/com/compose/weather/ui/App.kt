@@ -1,4 +1,4 @@
-package com.compose.weather
+package com.compose.weather.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
