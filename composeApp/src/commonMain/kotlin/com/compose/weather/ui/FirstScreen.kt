@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.koin.compose.viewmodel.koinViewModel
@@ -37,7 +38,9 @@ fun FirstScreen(
             modifier = Modifier
         ) {
 
-            Text("Code harder")
+            Text(text = "Code harder", textAlign = TextAlign.Center)
+
+            Text(text = "${state.value}", textAlign = TextAlign.Center)
 
             Button(
                 onClick = {
