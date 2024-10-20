@@ -12,20 +12,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun FirstScreen(
-    modifier: Modifier = Modifier,
-    viewModel: FirstViewModel = koinViewModel()
+    viewModel: FirstViewModel,
+    modifier: Modifier = Modifier
 ) {
 
     LaunchedEffect(key1 = Unit) {
         viewModel.makeApiCall()
     }
 
-    val state = viewModel.state.collectAsStateWithLifecycle()
+//    val state = viewModel.state.collectAsStateWithLifecycle()
 
     Box(
         contentAlignment = Alignment.Center,
@@ -40,7 +38,7 @@ fun FirstScreen(
 
             Text(text = "Code harder", textAlign = TextAlign.Center)
 
-            Text(text = "${state.value}", textAlign = TextAlign.Center)
+//            Text(text = "${state.value}", textAlign = TextAlign.Center)
 
             Button(
                 onClick = {

@@ -12,6 +12,9 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.contextual
+import org.koin.core.context.startKoin
+import org.koin.core.module.dsl.viewModel
+import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
 val provideHttpClientModule = module {
@@ -49,19 +52,29 @@ val provideRepositoryModule = module {
     single<WeatherRepository> { WeatherRepository(get()) }
 }
 
-val viewModelModule = module {
-    factory { FirstViewModel(get()) }
-}
 
-
-fun appModule() = listOf(
+val appModules = listOf(
     provideHttpClientModule,
     provideApiServiceModule,
     provideDataSourceModule,
     provideRepositoryModule,
-    viewModelModule
 )
 
 val mapSerializerModule = SerializersModule {
     contextual<LinkedHashMap<String, String>>(LinkedHashMapSerializer)
+}
+
+
+fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {
+    modules(appModules)
+    appDeclaration()
+}
+
+fun initKoin() = initKoin { }
+
+
+fun initializeKoin() {
+    startKoin {
+        modules(appModules)
+    }
 }
