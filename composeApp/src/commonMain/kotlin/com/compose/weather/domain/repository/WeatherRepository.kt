@@ -1,17 +1,19 @@
 package com.compose.weather.domain.repository
 
+import com.compose.weather.model.BaseResponse
+import com.compose.weather.model.FirstResponse
 import com.compose.weather.network.RemoteDataSource
+import io.ktor.client.statement.HttpResponse
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.seconds
 
 class WeatherRepository(
-    val remoteDataSource: RemoteDataSource,
+    private val remoteDataSource: RemoteDataSource,
 ) {
 
-    suspend fun getWeatherInfo(): Result<Int> {
+    suspend fun getWeatherInfo(): Result<BaseResponse<FirstResponse>> {
         return runCatching {
-            delay(2.seconds)
-            1
+            remoteDataSource.getData()
         }
     }
 

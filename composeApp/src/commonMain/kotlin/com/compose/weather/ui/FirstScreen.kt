@@ -41,7 +41,7 @@ fun FirstScreen(
 
             Button(
                 onClick = {
-
+                    viewModel.makeApiCall()
                 }
             ) {
                 Text("Code harder")

@@ -20,7 +20,7 @@ class FirstViewModel(
             result.onSuccess {
 
             }.onFailure {
-
+                it.printStackTrace()
             }
         }
     }

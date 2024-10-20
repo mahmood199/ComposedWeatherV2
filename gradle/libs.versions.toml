@@ -19,10 +19,11 @@ kotlin-cocoapods = "2.0.0"
 ktor = "3.0.0"
 ktor-gson = "1.5.0"
 navigation-compose = "2.7.0-alpha07"
-serialization-json = "1.5.1"
+serialization-json = "1.7.3"
 slf4j-simple = "2.0.9"
 koin-bom = "4.0.0"
 ui-tooling-preview-desktop = "1.7.0-rc01"
+kotlin-serialization = "2.0.21"
 
 
 [libraries]
@@ -74,3 +75,4 @@ jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-plugi
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin-cocoapods" }
+kotlin-serilazation = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
